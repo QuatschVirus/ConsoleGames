@@ -1,0 +1,11 @@
+letters:
+    Apple: O
+    Frame: X
+    SnakeHead: S
+    SnakeTail: s
+moves:
+    down: s
+    left: a
+    right: d
+    up: w
+size: '8'
