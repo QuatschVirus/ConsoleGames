@@ -257,3 +257,6 @@ You can take the following actions: "start", "settings", "stop\"""")
 
 while __name__ == "__main__":
     main()
+
+
+# TODO: Add a highscore system
