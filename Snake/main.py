@@ -4,6 +4,7 @@ from ConsoleBooster import \
 # TODO: Add import cheking and downloading of my libs
 from osplus import Logs, Configs  # My own library for helping with some stuff.
 from colorama import init, Fore  # A library for making colorful texts
+import requests
 
 init(convert=True)  #Sets up colorama to work with th windows command line #TODO: Only use this on windows
 
@@ -255,8 +256,37 @@ You can take the following actions: "start", "settings", "stop\"""")
                 f"{Fore.RED}Invalid. Please try again! You can take the following actions: \"start\", \"settings\", \"stop\"{Fore.RESET}")
 
 
+def first_start():
+    os.system("cls")
+    os.system("title ConsoleSnake - Made by QuatschVirus")
+    print("""╔═══════════════════════════════════════╗
+    ║ █████   █   █   █████   █   █   █████ ║
+    ║ █       ██  █   █   █   █  █    █     ║
+    ║ █       █ █ █   █   █   █ █     █     ║
+    ║ █████   █  ██   █████   ██      █████ ║
+    ║     █   █   █   █   █   █ █     █     ║
+    ║     █   █   █   █   █   █  █    █     ║
+    ║ █████   █   █   █   █   █   █   █████ ║
+    ╚═══════════════════════════════════════╝
+    Since you started this for the first time, you need to accept the license:\n""")
+    license_request = requests.get("https://raw.githubusercontent.com/QuatschVirus/ConsoleGames/main/LICENSE")
+    print(license_request.content)
+    print("")
+    accept = input("Do you accept this license? (y/n)").lower()
+    while accept not in ("y", "n"):
+        accept = input("Do you accept this license? (y/n)").lower()
+    if accept == "y":
+        config.set("first", False)
+        return
+    else:
+        sys.exit(Fore.RED + "You didn't accept the license" + Fore.RESET)
+
+
 while __name__ == "__main__":
-    main()
+    if config.get("first"):
+        first_start()
+    else:
+        main()
 
 
 # TODO: Add a highscore system
