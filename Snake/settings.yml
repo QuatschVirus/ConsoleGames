@@ -1,11 +1,12 @@
 letters:
-    Apple: O
-    Frame: X
-    SnakeHead: S
-    SnakeTail: s
+    Apple: O      #Must be a single chracter
+    Frame: X      #Must be a single chracter
+    SnakeHead: S  #Must be a single chracter
+    SnakeTail: s  #Must be a single chracter
 moves:
-    down: s
-    left: a
-    right: d
-    up: w
-size: '8'
+    down: s  #Must be a lowercase letter
+    left: a  #Must be a lowercase letter
+    right: d #Must be a lowercase letter
+    up: w    #Must be a lowercase letter
+size: '8'    #Musst be a number
+first: True  #True or false
